@@ -8,14 +8,19 @@ def tic_tac_toe():
     print_board(board)
     win = False
     while not win:
-        choice = input("Where would you like to input your piece?")
-        board = input_piece(board)
+        column = input("Where would you like to input your piece? (column)")
+        row = input("Where would you like to input your piece? (row)")
+        board = input_piece(column, row, board)
         won = detect_win(board)
         if won == "True":
             win = True
         elif won == "lost":
             return False
+        opponent_play(board)
     return True
+
+def opponent_play(b):
+    pass
 
 def print_board(b):
     for row in b:
@@ -24,8 +29,11 @@ def print_board(b):
         print()
     return 
 
-def input_piece(b):
-
+def input_piece(column, row, b):
+    if b[column][row] == 0:
+        b[column][row] = 'x'
+    else:
+        return False
     print_board(b)
     return b
 
