@@ -38,6 +38,22 @@ def input_piece(column, row, b):
     return b
 
 def detect_win(b):
+    if b[0][0] == b[0][1] == b[0][2]:
+        return True
+    elif b[1][0] == b[1][1] == b[1][2]:
+        return True
+    elif b[2][0] == b[2][1] == b[2][2]:
+        return True
+    elif b[0][0] == b[1][0] == b[2][0]:
+        return True
+    elif b[0][1] == b[1][1] == b[2][1]:
+        return True
+    elif b[0][2] == b[1][2] == b[2][2]:
+        return True
+    elif b[0][0] == b[1][1] == b[2][2]:
+        return True
+    elif b[0][3] == b[1][1] == b[2][0]:
+        return True
     return bool
     
 # true = win, false = lose
